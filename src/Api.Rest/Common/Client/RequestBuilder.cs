@@ -134,7 +134,7 @@ namespace Zeiss.PiWeb.Api.Rest.Common.Client
 			request.Content = new StreamContent( stream );
 
 			if( contentLength.HasValue )
-				request.Content.Headers.Add( HttpRequestHeader.ContentLength.ToString(), contentLength.Value.ToString() );
+				request.Content.Headers.ContentLength = contentLength.Value;
 			if( !string.IsNullOrEmpty( mimeType ) )
 				request.Content.Headers.ContentType = new MediaTypeHeaderValue( mimeType );
 			if( !string.IsNullOrEmpty( contentDisposition ) )
